@@ -1,25 +1,50 @@
+<!--
+	Estructura básica de HTML5
+	Sugerencia: Cambia el idioma a 'es' si tu público es hispanohablante.
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- Cambia a 'es' para español -->
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>My Web Project - WEB ATELIER (UDIT)</title>
-		<meta name="description" content="A student web project for WEB ATELIER (UDIT) course" />
-		<link rel="stylesheet" href="assets/css/style.css" />
+			<!--
+				<meta charset="UTF-8"> define la codificación de caracteres. UTF-8 es el estándar recomendado.
+				<meta name="viewport"> hace que el sitio sea responsive en dispositivos móviles.
+				<title> define el título que aparece en la pestaña del navegador.
+				<meta name="description"> ayuda al SEO y a la accesibilidad.
+				<link rel="stylesheet"> enlaza tu hoja de estilos CSS.
+				Sugerencia: El segundo <link rel="stylesheet"> apunta a un archivo JS, debería ser <script src="...">.
+			-->
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<title>My Web Project - WEB ATELIER (UDIT)</title>
+			<meta name="description" content="A student web project for WEB ATELIER (UDIT) course" />
+			<link rel="stylesheet" href="assets/css/style.css" />
+			<!-- Sugerencia: Usa <script src="assets/js/main.js"></script> para enlazar JavaScript -->
 	</head>
 	<body>
+		<!--
+		  <a href="#main" class="skip-link"> es un enlace de accesibilidad que permite saltar directamente al contenido principal.
+		  Sugerencia: Mantén este enlace visible solo al enfocar con el teclado.
+		-->
 		<a href="#main" class="skip-link">Skip to main content</a>
 
 		<header>
+			<!--
+			  <header> contiene el encabezado del sitio, normalmente con el logo y el título.
+			  Sugerencia: Puedes agregar una barra de navegación <nav> aquí.
+			-->
 			<div class="container">
-				<h1>My Web Project</h1>
+				<h1>My Web Project</h1> <!-- Título principal del sitio -->
 				<p>Student Project - WEB ATELIER (UDIT)</p>
 			</div>
 		</header>
 
 		<main id="main" class="container">
+			<!--
+			  <main> es el contenido principal de la página.
+			  Sugerencia: Usa más secciones <section> o <article> para organizar el contenido.
+			-->
 			<section>
-				<h2>Welcome</h2>
+				<h2>welcomeeee </h2> <!-- Sugerencia: Usa títulos descriptivos y en el idioma del sitio -->
 				<p>
 					This is the starting point for my web project. I will build this incrementally, committing progress after each
 					class.
@@ -45,6 +70,10 @@
 		</main>
 
 		<footer>
+			<!--
+			  <footer> contiene la información de pie de página, como derechos de autor o enlaces legales.
+			  Sugerencia: Añade enlaces a redes sociales o información de contacto si aplica.
+			-->
 			<div class="container">
 				<p>© 2025 [Your Name] — WEB ATELIER (UDIT) · Web Design (2025 Fall).</p>
 				<p>
@@ -55,6 +84,9 @@
 			</div>
 		</footer>
 
+		<!--
+		  Sugerencia: Coloca los scripts justo antes de cerrar </body> para mejorar el rendimiento de carga.
+		-->
 		<script src="assets/js/main.js"></script>
 	</body>
-</html>
+	</html>
