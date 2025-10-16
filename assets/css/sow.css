@@ -1,8 +1,16 @@
 header {
+  font-family: "BBH Sans Hegarty", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  
+
   background: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-nav {
+
+
+nav { 
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -14,6 +22,10 @@ nav ul {
   display: flex;
 }
 nav ul li {
+  font-family: "BBH Sans Hegarty", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   margin-right: 1rem;
 }
 nav ul li a {
