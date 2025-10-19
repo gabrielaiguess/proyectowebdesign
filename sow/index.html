@@ -6,76 +6,93 @@
     <meta name="description" content="Breve descripción del sitio web." />
     <meta name="keywords" content="diseño, web, educativo" />
     <meta name="author" content="Nombre del autor" />
-    <title>Some Outstanding Webs Análisis de Sitios Premiados</title>
-    <link rel="stylesheet" href="../assets/css/index.css" />
-    <link rel="stylesheet" href="../assets/css/sow.css" />
+    <title>SOW Gabriela Riera</title>
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="../assets/icons/favicon-96x96.png"
-      sizes="96x96"
-    />
+    <link rel="stylesheet" href="../assets/css/index.css" />
+    <link rel="stylesheet" href="sow.css" />
+
+    <link rel="icon" type="image/png" href="../assets/icons/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
     <link rel="shortcut icon" href="../assets/icons/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../assets/icons/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap" rel="stylesheet">
 
+    <!-- Estilos mínimos para mejorar scroll/offset del header -->
+    <style>
+      html { scroll-behavior: smooth; }
+      /* Si el header está fijo o sticky, las secciones subirán con este margen */
+      section { scroll-margin-top: 80px; }
+      /* Mantener header visible y sobre el contenido si se desea */
+      header { position: sticky; top: 0; z-index: 1000; background: inherit; }
+    </style>
   </head>
+
   <body>
     <header>
-      <h1>Some Outstanding Webs</h1>
-      <nav>
-        <!-- Menú de navegación fijo -->
+      <h1>SOW</h1>
+      <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="#site-awwwards">Awwwards</a></li>
-          <li><a href="#site-webby">Webby</a></li>
-          <li><a href="#site-fwa">FWA</a></li>
-          <li><a href="#site-cssda">CSSDA</a></li>
+          <li><a href="#site-awwwards">web1</a></li>
+          <li><a href="#site-webby">web2</a></li>
+          <li><a href="#site-fwa">web3</a></li>
+          <li><a href="#site-cssda">web4</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section class="cover">
-        <h1 class="title">Some Outstanding Webs</h1>
+      <section class="cover" id="cover">
+        <h1 class="title">Some Outstanding Websites</h1>
       </section>
 
-      <!-- Secciones individuales para cada sitio -->
-      <section id="site-awwwards">
-        <h2>Awwwards</h2>
-        <!-- Contenido de análisis del sitio Awwwards -->
-        <p>lolollolololololooooooooooooollll</p>
+      <section id="site-awwwards" tabindex="-1">
+        <h2>webuno</h2>
+        <p>Contenido y análisis del sitio Awwwards.</p>
       </section>
 
-      <section id="site-webby">
-        <h2>webby</h2>
-        <!-- Contenido de análisis del sitio Awwwards -->
+      <section id="site-webby" tabindex="-1">
+        <h2>webdos</h2>
+        <p>Contenido y análisis del sitio Webby.</p>
       </section>
 
-      <section id="site-fwa">
-        <h2>fwa</h2>
-        <!-- Contenido de análisis del sitio Awwwards -->
+      <section id="site-fwa" tabindex="-1">
+        <h2>webtres</h2>
+        <p>Contenido y análisis del sitio FWA.</p>
       </section>
 
-      <section id="site-cssda">
-        <h2>cssda</h2>
-        <!-- Contenido de análisis del sitio Awwwards -->
+      <section id="site-cssda" tabindex="-1">
+        <h2>webcuatro</h2>
+        <p>Contenido y análisis del sitio CSSDA.</p>
       </section>
-
-      <!-- Más secciones para FWA, CSS Design Awards, etc. -->
     </main>
 
     <footer>
       <p>© 2025 Web Atelier (UDIT) – Informe de análisis.</p>
     </footer>
+
+    <script>
+      // Forzar scroll a la sección aunque el hash no cambie o ya esté seleccionado.
+      document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('nav a[href^="#"]');
+        links.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').slice(1);
+            const targetEl = document.getElementById(targetId);
+            if (!targetEl) return;
+            // Mover el foco por accesibilidad
+            targetEl.focus({ preventScroll: true });
+            // Scroll suave al elemento (usa scrollIntoView para forzar el movimiento)
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Actualiza el hash en la URL sin provocar salto adicional
+            history.pushState(null, '', '#' + targetId);
+          });
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1,3 +1,10 @@
+:root{
+  --header-padding-top: 0.2rem;    /* cambia aquí para ajustar padding superior del header */
+  --header-padding-bottom: 0.2rem; /* cambia aquí para ajustar padding inferior del header */
+  --header-margin-bottom: 0rem;    /* cambia aquí para añadir espacio debajo del header */
+  --nav-gap: 1rem;                 /* espacio horizontal entre enlaces (web1, web2...) */
+}
+
 header {
   font-family: "BBH Sans Hegarty", sans-serif;
   font-weight: 400;
@@ -5,8 +12,10 @@ header {
 
   
 
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #000000;
+  box-shadow: 0 2px 5px rgba(65, 65, 65, 0.1);
+
+  
 }
 
 
@@ -30,10 +39,10 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
-  color: #333;
+  color: #fefefe;
 }
 body {
-  background-color: rgb(215, 146, 255);
+  background-color: rgb(0, 0, 0);
 }
 
 section {
@@ -46,14 +55,14 @@ section {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #222;
+  background: #000000;
   color: #fff;
 }
 .title {
   font-size: 3rem;
   text-transform: uppercase;
   opacity: 0;
-  animation: fadeIn 2s forwards ease-in;
+  animation: fadeIn 4s forwards ease-in;
 }
 @keyframes fadeIn {
   to {
