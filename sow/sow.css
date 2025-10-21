@@ -1,71 +1,150 @@
-:root{
-  --header-padding-top: 0.2rem;    /* cambia aquí para ajustar padding superior del header */
-  --header-padding-bottom: 0.2rem; /* cambia aquí para ajustar padding inferior del header */
-  --header-margin-bottom: 0rem;    /* cambia aquí para añadir espacio debajo del header */
-  --nav-gap: 1rem;                 /* espacio horizontal entre enlaces (web1, web2...) */
+/* Importar Adobe Fonts (kit evb7vlz) */
+@import url('https://use.typekit.net/evb7vlz.css'); 
+
+:root {
+  --header-bg: #000000;
+  --text-color: #ffffff;
+  --accent-color: #ff6de2;
 }
 
+/* HEADER */
 header {
-  font-family: "BBH Sans Hegarty", sans-serif;
+  font-family: "Helvetica", sans-serif;
   font-weight: 400;
-  font-style: normal;
-
-  
-
-  background: #000000;
+  background: var(--header-bg);
+  color: var(--text-color);
   box-shadow: 0 2px 5px rgba(65, 65, 65, 0.1);
-
-  
-}
-
-
-nav { 
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 1rem;
 }
+
+header h1 {
+  font-family: parfumerie-script, sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  color: #ffffff;
+  margin: 0;
+  line-height: 0;
+  position: relative;
+  top: 0.3rem;
+}
+
+/* NAV */
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
 }
-nav ul li {
-  font-family: "BBH Sans Hegarty", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 
-  margin-right: 1rem;
-}
 nav ul li a {
   text-decoration: none;
-  color: #fefefe;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+  position: relative;
+  top: 0.1rem;
 }
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: var(--accent-color);
+}
+
+/* BODY & SECCIONES */
 body {
-  background-color: rgb(0, 0, 0);
+  background-color: #000000;
+  color: var(--text-color);
 }
 
 section {
-  height: 90vh;
+  height: 100vh;
   margin-left: 1vh;
+  padding: 2rem;
 }
 
+/* PORTADA / COVER */
 .cover {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   background: #000000;
   color: #fff;
 }
+
 .title {
-  font-size: 3rem;
-  text-transform: uppercase;
+  font-family: parfumerie-script, serif;
+  font-weight: 400;
   opacity: 0;
-  animation: fadeIn 4s forwards ease-in;
+  font-size: 13.5rem;
+  letter-spacing: 0px;
+  text-align: center; 
+  animation: fadeIn 3s forwards ease-in;
 }
+
+/* Subtitles en misma línea */
+.subtitle-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 39.3rem; /* espacio entre los subtítulos */
+  position: relative;
+  top: -6.6rem; 
+  left: 1.3rem;
+}
+
+.subtitle {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 3s forwards ease-in;
+  position: relative;
+  top: 0; 
+  left: 0;
+}
+
+.subtitle2 {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 3s forwards ease-in;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;
   }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header { height: 35px; }
+  header h1 { font-size: 2rem; }
+  nav ul { gap: 0.5rem; }
+  nav ul li a { font-size: 0.9rem; }
+  .title { font-size: 8rem; }
+  .subtitle, .subtitle2 { font-size: 1.2rem; gap: 1rem; }
+  .subtitle-wrapper { gap: 1rem; }
 }

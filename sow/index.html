@@ -8,7 +8,7 @@
     <meta name="author" content="Nombre del autor" />
     <title>SOW Gabriela Riera</title>
 
-    <link rel="stylesheet" href="../assets/css/index.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="sow.css" />
 
     <link rel="icon" type="image/png" href="../assets/icons/favicon-96x96.png" sizes="96x96" />
@@ -21,25 +21,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap" rel="stylesheet">
 
-    <!-- Estilos mínimos para mejorar scroll/offset del header -->
     <style>
       html { scroll-behavior: smooth; }
-      /* Si el header está fijo o sticky, las secciones subirán con este margen */
       section { scroll-margin-top: 80px; }
-      /* Mantener header visible y sobre el contenido si se desea */
       header { position: sticky; top: 0; z-index: 1000; background: inherit; }
     </style>
   </head>
 
   <body>
     <header>
-      <h1>SOW</h1>
+      <h1>Sow</h1>
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="#site-awwwards">web1</a></li>
-          <li><a href="#site-webby">web2</a></li>
-          <li><a href="#site-fwa">web3</a></li>
-          <li><a href="#site-cssda">web4</a></li>
+          <li><a href="#web1">WEB1</a></li>
+          <li><a href="#web2">WEB2</a></li>
+          <li><a href="#web3">WEB3</a></li>
+          <li><a href="#web4">WEB4</a></li>
         </ul>
       </nav>
     </header>
@@ -47,35 +44,38 @@
     <main>
       <section class="cover" id="cover">
         <h1 class="title">Some Outstanding Websites</h1>
+        <div class="subtitle-wrapper">
+          <h4 class="subtitle">ANALISIS DE PAGINAS WEB POR GABRIELA RIERA</h4>
+          <h3 class="subtitle2">2025</h3>
+        </div>
       </section>
 
-      <section id="site-awwwards" tabindex="-1">
-        <h2>webuno</h2>
-        <p>Contenido y análisis del sitio Awwwards.</p>
+      <section id="web1" tabindex="-1">
+        <h2>WEB NUMERO UNO</h2>
+        <p>vercel</p>
       </section>
 
-      <section id="site-webby" tabindex="-1">
-        <h2>webdos</h2>
-        <p>Contenido y análisis del sitio Webby.</p>
+      <section id="web2" tabindex="-1">
+        <h2>WEB NUMEOR DOS</h2>
+        <p>a</p>
       </section>
 
-      <section id="site-fwa" tabindex="-1">
-        <h2>webtres</h2>
-        <p>Contenido y análisis del sitio FWA.</p>
+      <section id="web3" tabindex="-1">
+        <h2>web numero tres</h2>
+        <p>a</p>
       </section>
 
-      <section id="site-cssda" tabindex="-1">
-        <h2>webcuatro</h2>
-        <p>Contenido y análisis del sitio CSSDA.</p>
+      <section id="web4" tabindex="-1">
+        <h2>web numero cuatro</h2>
+        <p>a</p>
       </section>
     </main>
 
     <footer>
-      <p>© 2025 Web Atelier (UDIT) – Informe de análisis.</p>
+      <p>© 2025 Web Atelier (UDIT) - Informe de análisis.</p>
     </footer>
 
     <script>
-      // Forzar scroll a la sección aunque el hash no cambie o ya esté seleccionado.
       document.addEventListener('DOMContentLoaded', function () {
         const links = document.querySelectorAll('nav a[href^="#"]');
         links.forEach(link => {
@@ -84,11 +84,8 @@
             const targetId = this.getAttribute('href').slice(1);
             const targetEl = document.getElementById(targetId);
             if (!targetEl) return;
-            // Mover el foco por accesibilidad
             targetEl.focus({ preventScroll: true });
-            // Scroll suave al elemento (usa scrollIntoView para forzar el movimiento)
             targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Actualiza el hash en la URL sin provocar salto adicional
             history.pushState(null, '', '#' + targetId);
           });
         });
