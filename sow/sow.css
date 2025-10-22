@@ -145,7 +145,7 @@ section {
 
 /* Reducir espacio entre h2 y p solo en las secciones web1–web4 */
 #web1 h2, #web2 h2, #web3 h2, #web4 h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 2.4rem;
   line-height: 0; /* reduce el espacio interno del texto */
 }
 

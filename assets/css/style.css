@@ -40,11 +40,21 @@ h1 {
 
 section h2 {
     font-size: 1rem;         /* tamaño del título */
-    margin-bottom: 0rem;   /* separación deseada entre h2 y p */
+    margin-bottom: 0rem;  
+    margin-left: 0.2rem; /* separación deseada entre h2 y p */
+    
+}
+
+/* Ajusta la distancia entre caracteres de los párrafos de las secciones */
+#web1 p,
+#web2 p,
+#web3 p,
+#web4 p {
+    letter-spacing: -0.25rem; /* Aumenta o disminuye según lo necesites */
 }
 
 section p {
-    font-size: 6rem;          /* tamaño del párrafo */
+    font-size: 4rem;          /* tamaño del párrafo */
     margin-top: 0;            /* opcional, no agrega margen extra arriba */
     margin-bottom: 0rem;      /* espacio entre párrafos si hay más de uno */
 }
