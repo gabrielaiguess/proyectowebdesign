@@ -60,6 +60,9 @@ nav ul li a:hover,
 nav ul li a:focus {
   color: var(--accent-color);
 }
+nav ul li a:focus {
+  outline: none;
+}
 
 /* BODY & SECCIONES */
 body {
@@ -79,7 +82,7 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
   background: #000000;
   color: #fff;
 }
@@ -88,48 +91,38 @@ section {
   font-family: parfumerie-script, serif;
   font-weight: 400;
   opacity: 0;
-  font-size: 13.5rem;
-  letter-spacing: 0px;
-  text-align: center; 
+  font-size: 15vw; /* escala según el ancho de la pantalla */
+  letter-spacing: 0;
+  text-align: center;
   animation: fadeIn 3s forwards ease-in;
+  margin: 0;
+  line-height: 1; /* mantiene el bloque compacto */
+  position: relative;
+  top: -2rem;
+ left: -0.5rem;
 }
 
 /* Subtitles en misma línea */
 .subtitle-wrapper {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 39.3rem; /* espacio entre los subtítulos */
+  width: 99vw;
+  padding: 0 6vw;
   position: relative;
-  top: -6.6rem; 
-  left: 1.3rem;
+  top: -5.5rem;
+ left: 1.1rem;
 }
 
-.subtitle {
-  font-family: "Helvetica", sans-serif;
-  font-weight: 400;
-  font-size: 1.5rem;
-  color: #ffffff;
-  text-align: center;
-  opacity: 0;
-  animation: fadeIn 3s forwards ease-in;
-  position: relative;
-  top: 0; 
-  left: 0;
-}
-
+.subtitle,
 .subtitle2 {
   font-family: "Helvetica", sans-serif;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.5vw; /* escala con el ancho de la ventana */
   color: #ffffff;
   text-align: center;
   opacity: 0;
   animation: fadeIn 3s forwards ease-in;
-  position: relative;
-  top: 0;
-  left: 0;
 }
 
 @keyframes fadeIn {
@@ -144,7 +137,32 @@ section {
   header h1 { font-size: 2rem; }
   nav ul { gap: 0.5rem; }
   nav ul li a { font-size: 0.9rem; }
-  .title { font-size: 8rem; }
+  .title { font-size: 4.8rem; }
   .subtitle, .subtitle2 { font-size: 1.2rem; gap: 1rem; }
   .subtitle-wrapper { gap: 1rem; }
+}
+
+
+/* Reducir espacio entre h2 y p solo en las secciones web1–web4 */
+#web1 h2, #web2 h2, #web3 h2, #web4 h2 {
+  margin-bottom: 2rem;
+  line-height: 0; /* reduce el espacio interno del texto */
+}
+
+#web1 p, #web2 p, #web3 p, #web4 p {
+  margin-top: 0;
+  line-height: 0; /* igualar altura de línea del párrafo */
+}
+
+header h1 a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+header h1 a:hover,
+header h1 a:focus {
+  color: var(--accent-color);
+}
+header h1 a:focus {
+  outline: none;
 }

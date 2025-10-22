@@ -159,3 +159,22 @@ select:focus {
     top: 6px;
 }
 
+/* Updated subtitle styles */
+.subtitle-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 0 3vw;
+  position: relative;
+  top: -6vw;
+  left: 1.5rem;
+}
+
+.subtitle,
+.subtitle2 {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 400;
+  font-size: 2vw; /* escala libre, sin límites */
+  line-height: 1;
+}
