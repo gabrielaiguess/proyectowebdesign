@@ -145,7 +145,7 @@ section {
 
 /* Reducir espacio entre h2 y p solo en las secciones web1–web4 */
 #web1 h2, #web2 h2, #web3 h2, #web4 h2 {
-  margin-bottom: 2.4rem;
+  margin-bottom: 2.8rem;
   line-height: 0; /* reduce el espacio interno del texto */
 }
 
@@ -165,4 +165,130 @@ header h1 a:focus {
 }
 header h1 a:focus {
   outline: none;
+}
+
+
+/* --- Acordeón interactivo debajo del iframe --- */
+.analisis-co {
+  width: 94%;
+  margin: 1rem auto;
+  font-family: "Helvetica", sans-serif;
+  color: #ffffff;
+}
+
+.analisis-titulo {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* Estructura del acordeón */
+.accordion-item {
+  border-bottom: 0px solid #444;
+  padding: 0.5rem 0;
+}
+
+.accordion-header {
+  background: none;
+  color: #ffffff;
+  border: none;
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  padding: 1rem 0;
+  padding-left: 1rem;  /* espacio para la flecha */
+  transition: color 0.2s ease;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.accordion-header:hover,
+.accordion-header.active {
+  color: var(--accent-color);
+}
+
+.accordion-header:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Flecha animada */
+.accordion-header::after {
+  content: "›";
+  position: absolute;
+  left: 0;
+  right: auto;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+  transform: rotate(90deg);
+}
+
+.accordion-content {
+  display: none;
+  padding: 0.5rem 0 1rem 0.5rem;
+  color: #d8d8d8;
+  font-size: 3rem;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Nuevo tipo de texto para los bloques de análisis */
+.accordion-text {
+  font-family: "Helvetica", sans-serif;
+  font-size: 1.2rem;  /* tamaño reducido */
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+  color: #d8d8d8;
+  margin: 0.5rem 0 1rem 0.5rem;
+ text-align: left;
+}
+
+/* Ajuste final de alineación del acordeón */
+.analisis-co {
+  width: 96%; /* mismo ancho que el iframe */
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.accordion-header {
+  padding-left: 1.5rem; /* menos espacio entre flecha y texto */
+  letter-spacing: -0.7px;
+}
+
+.accordion-header::after {
+  content: "›";
+  position: absolute;
+  left: 0.65rem;
+  right: auto;
+  font-size: 1.3rem;
+  margin-top: 0.3rem
+}
+
+.accordion-text {
+  text-align: left;
+  margin-left: 01rem; /* reduce margen izquierdo del texto */
+  margin-right: 01rem
+}
+
+
+.accordion-content {
+  padding-top: 0rem;  /* menos espacio entre título y texto */
+  padding-bottom: 0.7rem;
+  padding-left: 0.5rem;
+}
+
+/* Reducir espacio entre el análisis de cada web y el siguiente título */
+.analisis-co {
+  margin-bottom: 0rem; /* ajusta este valor a lo que consideres "la mitad de la mitad" */
 }

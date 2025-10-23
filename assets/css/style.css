@@ -40,7 +40,7 @@ h1 {
 
 section h2 {
     font-size: 1rem;         /* tamaño del título */
-    margin-bottom: 0rem;  
+    margin-bottom: 0.2rem;  
     margin-left: 0.2rem; /* separación deseada entre h2 y p */
     
 }
@@ -54,7 +54,7 @@ section h2 {
 }
 
 section p {
-    font-size: 4rem;          /* tamaño del párrafo */
+    font-size: 5rem;          /* tamaño del párrafo */
     margin-top: 0;            /* opcional, no agrega margen extra arriba */
     margin-bottom: 0rem;      /* espacio entre párrafos si hay más de uno */
 }
@@ -187,4 +187,13 @@ select:focus {
   font-weight: 400;
   font-size: 2vw; /* escala libre, sin límites */
   line-height: 1;
+}
+
+/* Nuevo tipo de texto para los bloques de análisis */
+.accordion-text {
+  font-family: "Helvetica", sans-serif;
+  font-size: 0.9rem;  /* tamaño reducido */
+  line-height: 1.5;
+  color: #d8d8d8;
+  margin: 0.5rem 0 1rem 0.5rem;
 }
