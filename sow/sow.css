@@ -151,7 +151,7 @@ section {
 }
 
 #web1 p, #web2 p, #web3 p, #web4 p {
-  margin-top: 0;
+  margin-top: 3rem;
   line-height: 0; /* igualar altura de línea del párrafo */
 }
 
@@ -257,10 +257,26 @@ header h1 a:focus {
 
 /* Ajuste final de alineación del acordeón */
 .analisis-co {
-  width: 96%; /* mismo ancho que el iframe */
-  margin: 2rem auto;
-  text-align: left;
+    width: 96%;
+    margin: 0 auto !important; /* Cambiado de 2rem auto a 0 auto */
+    text-align: left;
+    padding: 0 !important;
 }
+
+/* Ajustar también el primer elemento del acordeón */
+.analisis-titulo {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Asegurar que el iframe no tenga margen inferior */
+iframe {
+    margin-bottom: 0 !important;
+    display: block !important;
+}
+
+
+
 
 .accordion-header {
   padding-left: 1.5rem; /* menos espacio entre flecha y texto */
@@ -289,7 +305,54 @@ header h1 a:focus {
   padding-left: 0.5rem;
 }
 
-/* Reducir espacio entre el análisis de cada web y el siguiente título */
+
+
+/* Reset completo de espacios */
+section {
+    height: 3rem;
+    padding: 0rem;
+    margin: 0rem
+
+}
+
 .analisis-co {
-  margin-bottom: 0rem; /* ajusta este valor a lo que consideres "la mitad de la mitad" */
+    width: 94%;
+    margin: 0rem auto !important;
+    padding: 0 !important;
+}
+
+.analisis-co p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+iframe {
+    display: block !important;
+    margin: 4rem !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.accordion {
+    margin-top: -4rem !important;
+    margin-left: 3rem ;
+    margin-bottom: 12rem;
+}
+
+/* Eliminar cualquier espacio entre elementos */
+* + * {
+    margin-top: 0rem !important;
+}
+
+/* Margen izquierdo para párrafos y h2 */
+p, h2 {
+    margin-left: 3rem !important;
+}
+
+/* Mantener el margen original para casos especiales */
+.cover p,
+.cover h2,
+header h2 {
+    margin-left: 0 !important;
 }
