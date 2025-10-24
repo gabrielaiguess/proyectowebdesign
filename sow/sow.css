@@ -6,6 +6,10 @@
   --header-bg: #000000;
   --text-color: #ffffff;
   --accent-color: #ff6de2;
+  --title-min: 2.2rem;
+  --title-max: 18rem;
+  --subtitle-min: 0.9rem;
+  --subtitle-max: 1.8rem;
 }
 
 /* HEADER */
@@ -28,7 +32,7 @@ header {
 header h1 {
   font-family: parfumerie-script, sans-serif;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: clamp(2rem, 1.8vw, 3rem); /* conserva 3rem en pantallas grandes */
   color: #ffffff;
   margin: 0;
   line-height: 0;
@@ -92,7 +96,7 @@ section {
   font-family: parfumerie-script, serif;
   font-weight: 400;
   opacity: 0;
-  font-size: 15vw; /* escala según el ancho de la pantalla */
+  font-size: clamp(var(--title-min), 15vw, var(--title-max));
   letter-spacing: 0;
   text-align: center;
   animation: fadeIn 3s forwards ease-in;
@@ -119,7 +123,7 @@ section {
 .subtitle2 {
   font-family: "Helvetica", sans-serif;
   font-weight: 400;
-  font-size: 1.5vw; /* escala con el ancho de la ventana */
+  font-size: clamp(var(--subtitle-min), 1.5vw, var(--subtitle-max));
   color: #ffffff;
   text-align: center;
   opacity: 0;
@@ -133,16 +137,32 @@ section {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  header { height: 35px; }
-  header h1 { font-size: 2rem; }
-  nav ul { gap: 0.5rem; }
-  nav ul li a { font-size: 0.9rem; }
-  .title { font-size: 4.8rem; }
-  .subtitle, .subtitle2 { font-size: 1.2rem; gap: 1rem; }
-  .subtitle-wrapper { gap: 1rem; }
+@media (max-width: 1024px) {
+  section { height: auto; padding: 1.2rem; }
+  .title { top: -1.5rem; left: -0.3rem; }
+  .subtitle-wrapper { top: -4rem; padding: 0 4vw; }
+  .analisis-co { width: 96%; margin: 0.6rem auto; }
+  iframe { margin: 2rem auto !important; width: calc(100% - 4rem); max-width: 100%; }
 }
 
+@media (max-width: 768px) {
+  header { height: 45px; }
+  header h1 { font-size: clamp(1.6rem, 4.2vw, 2rem); }
+  .title { font-size: clamp(2rem, 12vw, 8rem); top: -1rem; left: 0; }
+  .subtitle, .subtitle2 { font-size: clamp(0.9rem, 2.6vw, 1.2rem); }
+  nav ul { gap: 0.5rem; flex-wrap: wrap; }
+  .subtitle-wrapper { flex-direction: column; gap: 0.4rem; align-items: center; top: -3.5rem; padding: 0 3vw; }
+  .accordion { margin-left: 1rem; margin-top: -1rem; margin-bottom: 6rem; }
+  .analisis-co p { line-height: 1.3; }
+}
+
+@media (max-width: 480px) {
+  .title { font-size: clamp(1.6rem, 20vw, 6rem); top: -0.5rem; }
+  .analisis-titulo { font-size: clamp(1.2rem, 6vw, 2rem); }
+  .accordion-header { padding-left: 1rem; }
+  iframe { margin: 1rem !important; width: calc(100% - 2rem); }
+  p, h2 { margin-left: 1rem !important; }
+}
 
 /* Reducir espacio entre h2 y p solo en las secciones web1–web4 */
 #web1 h2, #web2 h2, #web3 h2, #web4 h2 {
@@ -178,7 +198,7 @@ header h1 a:focus {
 }
 
 .analisis-titulo {
-  font-size: 3rem;
+  font-size: clamp(1.4rem, 2.6vw, 3rem); /* no aumenta en escritorio */
   margin-bottom: 1.5rem;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
@@ -195,7 +215,7 @@ header h1 a:focus {
   background: none;
   color: #ffffff;
   border: none;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2.2vw, 2rem);
   text-align: left;
   width: 100%;
   cursor: pointer;
@@ -220,9 +240,10 @@ header h1 a:focus {
 .accordion-header::after {
   content: "›";
   position: absolute;
-  left: 0;
+  left: 0.65rem;
   right: auto;
-  transition: transform 0.3s ease;
+  font-size: 1.3rem;
+  margin-top: 0.3rem
 }
 
 .accordion-header.active::after {
@@ -233,7 +254,7 @@ header h1 a:focus {
   display: none;
   padding: 0.5rem 0 1rem 0.5rem;
   color: #d8d8d8;
-  font-size: 3rem;
+  font-size: clamp(0.95rem, 1.6vw, 1.6rem);
   line-height: 1.5;
   animation: fadeIn 0.3s ease;
 }
@@ -246,13 +267,34 @@ header h1 a:focus {
 /* Nuevo tipo de texto para los bloques de análisis */
 .accordion-text {
   font-family: "Helvetica", sans-serif;
-  font-size: 1.2rem;  /* tamaño reducido */
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
   font-weight: 200;
   line-height: 1.2;
   letter-spacing: -0.7px;
   color: #d8d8d8;
   margin: 0.5rem 0 1rem 0.5rem;
  text-align: left;
+  column-count: 2;            /* dividir en dos columnas */
+  column-gap: 1.5rem;         /* separación entre columnas */
+  column-fill: auto;         
+  hyphens: auto;             /* permitir guiones para mejor ajuste */
+  break-inside: avoid;       /* evitar que los bloques se rompan entre columnas */
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+}
+
+/* Evitar que elementos interiores se rompan y mantener márgenes */
+.accordion-text p {
+  margin: 0 0 0.75rem 0;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+@media (max-width: 768px) {
+  .accordion-text {
+    column-count: 1; /* volver a una columna en pantallas pequeñas */
+    column-gap: 0;
+  }
 }
 
 /* Ajuste final de alineación del acordeón */
@@ -356,3 +398,87 @@ p, h2 {
 header h2 {
     margin-left: 0 !important;
 }
+
+/* CORRECCIÓN: evitar que los bloques de análisis de la última web se desplacen a la izquierda
+   Anulamos los márgenes globales aplicados a p,h2 y a .accordion sólo dentro de #web4
+   para mantener el layout correcto sin afectar el resto de la web. */
+#web4 .analisis-co,
+#web4 .analisis-co p,
+#web4 .analisis-co h2,
+#web4 .analisis-co .accordion,
+#web4 .analisis-co .accordion-item,
+#web4 .analisis-co .accordion-header,
+#web4 .analisis-co .accordion-content,
+#web4 .analisis-co .accordion-text {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Si el acordeón está fuera de .analisis-co pero dentro de #web4 */
+#web4 .accordion,
+#web4 .accordion * {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Asegurar que el iframe dentro de #web4 no empuje contenido hacia la izquierda */
+#web4 iframe {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+/* Ajuste adicional: los encabezados y párrafos dentro de la sección de análisis deben alinearse al contenedor */
+#web4 .analisis-co h2,
+#web4 .analisis-co p {
+  text-align: left;
+}
+
+/* Fin de la corrección para #web4 */
+
+/* Refuerzo: si no tienes #web4, aplicar corrección al último section que contiene el análisis */
+section:last-of-type .analisis-co,
+section:last-of-type .analisis-co *,
+section:last-of-type .accordion,
+section:last-of-type .accordion *,
+section:last-of-type p,
+section:last-of-type h2 {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+section:last-of-type .accordion {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-bottom: 3rem !important;
+}
+
+/* Forzar que .analisis-co use el ancho del contenedor y que su contenido no se desplace */
+section:last-of-type .analisis-co {
+  width: calc(100% - 2rem) !important;
+  margin: 0.6rem auto !important;
+  padding: 0 1rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Centrar iframe y eliminar márgenes exagerados que empujan contenido */
+section:last-of-type iframe,
+section:last-of-type .analisis-co iframe {
+  margin: 0.8rem auto !important;
+  display: block !important;
+  max-width: 100% !important;
+}
+
+/* Si la estructura tiene .web4 en vez de #web4 */
+.web4 .analisis-co,
+.web4 .analisis-co *,
+.web4 .accordion,
+.web4 .accordion * {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Si aún no se corrige: temporalmente resaltar el contenedor para depuración */
+/* section:last-of-type .analisis-co { outline: 2px dashed lime !important; } */
+
+/* Fin del refuerzo para el desplazamiento de la última sección */
