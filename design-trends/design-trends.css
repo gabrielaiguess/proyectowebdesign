@@ -1,0 +1,35 @@
+
+/* Tipografía y colores generales */
+body {
+  font-family: "Helvetica", sans-serif;
+  background-color: #000;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica", sans-serif;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+/* Texto base y elementos de formulario */
+p, li, label, input, textarea, button, a {
+  font-family: "Helvetica", sans-serif;
+  color: #fff;
+}
+
+/* Enlaces */
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+a:hover {
+  opacity: 0.85;
+}
+
